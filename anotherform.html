@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hello vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        td, th{
+            width: 25%;
+            text-align: center
+        }
+    </style>
+
+</head>    
+<body>
+    <div id="app">
+        <h1>example Shopping Cart</h1>
+        <table>
+            <tr><th>Item</th><th>Unit Price</th><th>Quantity</th><th>Total</th></tr>
+            <tr>
+                <td>{{ name }}</td>
+                <td>${{ Unitprice }}</td>
+                <td><input type="number" id="Quantity" v-model="Quantity"></td>
+                <td id="total"> ${{ total | decimalplaces(2) }} </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: "Iphone",
+            Quantity: 1,
+            Unitprice: 800.99
+        },
+        computed: {
+            total: function() {
+                return this.Quantity * this.Unitprice
+            }
+        },
+        filters: {
+            decimalplaces: function(price, decimalplaces) {
+                return price.toFixed(decimalplaces)
+            }
+        }
+    })
+</script>
+
+
+
+</body>
+</html>
