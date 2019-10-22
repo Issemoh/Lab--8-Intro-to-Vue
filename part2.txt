@@ -1,0 +1,2 @@
+I think what cause that error is beacuse we didn't defined the total price,so that error is just warning not real error.
+most like we will see that error in Vue an
